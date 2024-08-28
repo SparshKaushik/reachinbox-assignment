@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { Poppins } from "next/font/google";
 import ThemeProvider from "~/components/ThemeProvider";
+import AuthProvider from "~/components/AuthProvider";
 
 export const metadata: Metadata = {
   title: "ReachInbox - AI to send cold emails  that land directly in the Inbox",
@@ -22,9 +23,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${poppins.variable} overflow-hidden font-sans`}>
-      <ThemeProvider>
-        <body>{children}</body>
-      </ThemeProvider>
+      <body>
+        <ThemeProvider forcedTheme="dark" attribute="class">
+          <AuthProvider>{children}</AuthProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
