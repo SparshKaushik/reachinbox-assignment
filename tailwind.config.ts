@@ -14,6 +14,14 @@ export default {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
           border: "hsl(var(--muted-border))",
+          lighter: "hsl(var(--muted-lighter))",
+        },
+        left: {
+          bg: "hsl(var(--left-bg))",
+          icon: {
+            DEFAULT: "hsl(var(--left-icon))",
+            active: "hsl(var(--left-icon-active))",
+          },
         },
       },
     },

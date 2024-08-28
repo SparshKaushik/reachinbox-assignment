@@ -7,11 +7,17 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
-    --muted: 0 0% 7%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 215 20% 65%;
+    --muted-lighter: 0 0% 100%;
+    --muted-lighter-foreground: 0 0% 12%;
+    --muted-foreground: 0 0% 7%;
     --muted-border: 230 7% 16%;
 
-    --border: 210 10% 23%;
+    --left-bg: 0 0% 98%;
+    --left-icon: 210 13% 62%;
+    --left-icon-active: 210 1% 35%;
+
+    --border: 0 0% 87%;
   }
 
   .dark {
@@ -19,8 +25,13 @@
     --foreground: 0 0% 100%;
 
     --muted: 0 0% 7%;
+    --muted-lighter: 0 0% 12%;
     --muted-foreground: 215 20% 65%;
     --muted-border: 230 7% 16%;
+
+    --left-bg: 220 9% 7%;
+    --left-icon: 0 0% 68%;
+    --left-icon-active: 0 0% 100%;
 
     --border: 210 10% 23%;
   }
