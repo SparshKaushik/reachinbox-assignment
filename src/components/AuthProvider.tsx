@@ -8,8 +8,12 @@ import { auth$ } from "~/lib/states/auth";
 import { Card } from "./ui/Card";
 import { Button } from "./ui/Button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { env } from "~/env";
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
+  const path = usePathname();
+
   const [isLoading, setIsLoading] = useState(true);
 
   const auth = auth$.get();
@@ -64,7 +68,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       </div>
     );
 
-  if (auth) {
+  if (auth || path.startsWith("/redirect")) {
     return children;
   }
 
@@ -81,7 +85,15 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             Sign Up with Google
           </button>
 
-          <Button>Create an Account</Button>
+          <Button asChild>
+            <Link
+              href={`https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=${
+                env.NEXT_PUBLIC_REDIRECT_URL
+              }/redirect`}
+            >
+              Create an Account
+            </Link>
+          </Button>
 
           <div className="space-x-1">
             <span className="text-muted-foreground">

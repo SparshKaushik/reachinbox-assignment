@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { cn } from "~/lib/utils";
 
 // background: linear-gradient(138.97deg, #111214 5.16%, #121212 105.18%);
