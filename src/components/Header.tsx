@@ -10,13 +10,22 @@ import {
 } from "./ui/Dropdown";
 import { auth$ } from "~/lib/states/auth";
 import { Switch } from "./ui/switch";
+import { useTheme } from "next-themes";
 
 export default function Header() {
+  const theme = useTheme();
+
   return (
-    <header className="flex h-12 items-center justify-between gap-4 border-b bg-[#1F1F1F] px-4 py-2 md:h-auto md:border-0 md:px-6">
+    <header className="bg-muted-lighter flex h-12 items-center justify-between gap-4 border-b border-border px-4 py-2">
       <div className="font-bold">Onebox</div>
       <div className="flex items-center gap-2">
-        <Switch className="relative">
+        <Switch
+          className="relative"
+          checked={theme.theme === "dark"}
+          onCheckedChange={(checked) =>
+            theme.setTheme(checked ? "dark" : "light")
+          }
+        >
           <MoonIcon className="absolute left-0 size-4 translate-x-0.5 text-white" />
           <SunIcon className="absolute left-0 size-4 translate-x-5 text-[#E8C364]" />
         </Switch>
