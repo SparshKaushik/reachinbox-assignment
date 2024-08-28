@@ -5,7 +5,7 @@ import { cn } from "~/lib/utils";
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   asChild?: boolean;
-  variant?: "default" | "ghost";
+  variant?: "default" | "ghost" | "secondary";
 };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -18,7 +18,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {
             "to-[rgba(5, 36, 191, 0.99)] bg-gradient-to-br from-[#4B63DD] from-[-2.99%] to-[#0524BF] to-[95.8%]":
               variant === "default",
-            "bg-transparent hover:bg-white/10 transition-colors": variant === "ghost",
+            "bg-transparent transition-colors hover:bg-white/10":
+              variant === "ghost",
+            "bg-muted-border": variant === "secondary",
           },
           className,
         )}

@@ -6,6 +6,7 @@ import ThemeProvider from "~/components/ThemeProvider";
 import AuthProvider from "~/components/AuthProvider";
 import Header from "~/components/Header";
 import LeftNavAside from "~/components/LeftNavAside";
+import QueryClientProvider from "~/components/QueryClientProvider";
 
 export const metadata: Metadata = {
   title: "ReachInbox - AI to send cold emails  that land directly in the Inbox",
@@ -24,20 +25,25 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${poppins.variable} overflow-hidden font-sans`}>
-      <body>
-        <ThemeProvider attribute="class" enableSystem={false}>
-          <AuthProvider>
-            <div className="flex h-dvh overflow-hidden">
-              <LeftNavAside />
-              <div className="flex flex-1 flex-col overflow-auto sm:gap-4">
-                <Header />
-                {children}
+    <QueryClientProvider>
+      <html
+        lang="en"
+        className={`${poppins.variable} overflow-hidden font-sans`}
+      >
+        <body>
+          <ThemeProvider attribute="class" enableSystem={false}>
+            <AuthProvider>
+              <div className="flex h-dvh overflow-hidden">
+                <LeftNavAside />
+                <div className="flex flex-1 flex-col overflow-auto">
+                  <Header />
+                  {children}
+                </div>
               </div>
-            </div>
-          </AuthProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+            </AuthProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </QueryClientProvider>
   );
 }

@@ -8,7 +8,12 @@ export default {
         border: "hsl(var(--border))",
 
         background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+          muted: "hsl(var(--foreground-muted))",
+        },
+
+        accent: "hsl(var(--accent))",
 
         muted: {
           DEFAULT: "hsl(var(--muted))",

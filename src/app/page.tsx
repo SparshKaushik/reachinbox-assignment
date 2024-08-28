@@ -1,5 +1,5 @@
 "use client";
 
 export default function HomePage() {
-  return <main>Reachinbox</main>;
+  return <main>Home Page</main>;
 }

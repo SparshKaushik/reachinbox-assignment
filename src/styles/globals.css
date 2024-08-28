@@ -6,6 +6,7 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
+    --foreground-muted: 0 0% 50%;
 
     --muted: 215 20% 65%;
     --muted-lighter: 0 0% 100%;
@@ -17,12 +18,15 @@
     --left-icon: 210 13% 62%;
     --left-icon-active: 210 1% 35%;
 
+    --accent: 217 89% 61%;
+
     --border: 0 0% 87%;
   }
 
   .dark {
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
+    --foreground-muted: 0 0% 50%;
 
     --muted: 0 0% 7%;
     --muted-lighter: 0 0% 12%;

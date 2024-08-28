@@ -18,12 +18,12 @@ export default function LeftNavAside() {
       <div className={cn("flex h-full flex-col gap-4 px-2 md:py-5")}>
         <div
           className={cn(
-            "flex min-h-14 flex-col-reverse items-center gap-4 pb-8 lg:min-h-[60px]",
+            "flex min-h-14 flex-col-reverse items-center pb-8 lg:min-h-[60px]",
           )}
         >
           <Link href="/" className="flex items-center gap-2 font-semibold">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/smlogo.png" alt="ReachInbox" className="size-4" />
+            <img src="/smlogo.png" alt="ReachInbox" className="size-5" />
           </Link>
         </div>
         <div className="flex-1">
