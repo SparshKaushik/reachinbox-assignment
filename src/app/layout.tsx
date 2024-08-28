@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Poppins } from "next/font/google";
 import ThemeProvider from "~/components/ThemeProvider";
 import AuthProvider from "~/components/AuthProvider";
+import Header from "~/components/Header";
 
 export const metadata: Metadata = {
   title: "ReachInbox - AI to send cold emails  that land directly in the Inbox",
@@ -25,7 +26,14 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} overflow-hidden font-sans`}>
       <body>
         <ThemeProvider forcedTheme="dark" attribute="class">
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <div className="flex h-dvh overflow-hidden">
+              <div className="flex flex-1 flex-col overflow-auto sm:gap-4">
+                <Header />
+                {children}
+              </div>
+            </div>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
