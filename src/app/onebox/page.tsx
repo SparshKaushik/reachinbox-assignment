@@ -96,7 +96,14 @@ export default function Onebox() {
             onClick={() =>
               api.get("/onebox/reset").then(async (res) => {
                 await mails.refetch();
-                toast.success(res.data.data as string);
+                toast.success(
+                  (
+                    res.data as {
+                      status: number;
+                      data: string;
+                    }
+                  ).data,
+                );
               })
             }
           >
