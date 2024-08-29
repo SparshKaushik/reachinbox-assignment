@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${poppins.variable} overflow-hidden font-sans`}
       >
         <body>
-          <ThemeProvider attribute="class" enableSystem={false}>
+          <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
             <Toaster position="bottom-right" />
             <AuthProvider>
               <div className="flex h-dvh overflow-hidden">

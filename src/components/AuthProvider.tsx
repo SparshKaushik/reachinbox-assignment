@@ -80,10 +80,15 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       <div className="flex h-full w-full flex-col items-center justify-center">
         <Card className="flex h-fit min-w-[40dvw] flex-col items-center gap-6 p-8">
           <span className="text-xl font-semibold"> Create a new account</span>
-          <button className="flex w-full items-center justify-center gap-2 rounded-md border border-border px-4 py-2">
+          <Link
+            className="flex w-full items-center justify-center gap-2 rounded-md border border-border px-4 py-2"
+            href={`https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=${
+              env.NEXT_PUBLIC_REDIRECT_URL
+            }/redirect`}
+          >
             <img alt="Google" src="/google.svg" className="size-8" />
             Sign Up with Google
-          </button>
+          </Link>
 
           <Button asChild>
             <Link
