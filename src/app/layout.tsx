@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Toaster } from "sonner";
 import ThemeProvider from "~/components/ThemeProvider";
 import AuthProvider from "~/components/AuthProvider";
 import Header from "~/components/Header";
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <body>
           <ThemeProvider attribute="class" enableSystem={false}>
+            <Toaster position="bottom-right" />
             <AuthProvider>
               <div className="flex h-dvh overflow-hidden">
                 <LeftNavAside />

@@ -33,3 +33,18 @@ export const navRoutes = [
     icon: BarChart2Icon,
   },
 ];
+
+export const Months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
