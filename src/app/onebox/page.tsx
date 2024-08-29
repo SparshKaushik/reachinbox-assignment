@@ -15,7 +15,7 @@ import {
   UnfoldVerticalIcon,
   UserMinusIcon,
 } from "lucide-react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Badge, BadgeDot } from "~/components/ui/Badge";
 import { Button } from "~/components/ui/Button";
@@ -47,6 +47,7 @@ import { cn } from "~/lib/utils";
 export default function Onebox() {
   const [currentMail, setCurrentMail] = useState<Mail | null>(null);
   const [showThread, setShowThread] = useState<boolean>(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState<boolean>(false);
 
   const mails = useMail();
 
@@ -57,6 +58,21 @@ export default function Onebox() {
   const deleteMailThread = useDeleteMailThread({
     id: currentMail?.threadId,
   });
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "d") {
+        if (!currentMail) return;
+        setShowDeleteDialog(true);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentMail]);
 
   return (
     <div className="grid h-[calc(100dvh-12px)] w-full grid-cols-[1fr_3fr_1fr]">
@@ -160,7 +176,10 @@ export default function Onebox() {
                 Move
                 <ChevronDown className="size-4 text-muted-foreground" />
               </Button>
-              <Dialog>
+              <Dialog
+                open={showDeleteDialog}
+                onOpenChange={setShowDeleteDialog}
+              >
                 <DropdownMenu>
                   <DropdownMenuTrigger>
                     <Button
