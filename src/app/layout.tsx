@@ -35,7 +35,7 @@ export default function RootLayout({
             <AuthProvider>
               <div className="flex h-dvh overflow-hidden">
                 <LeftNavAside />
-                <div className="flex flex-1 flex-col overflow-auto">
+                <div className="flex flex-1 flex-col overflow-hidden">
                   <Header />
                   {children}
                 </div>
